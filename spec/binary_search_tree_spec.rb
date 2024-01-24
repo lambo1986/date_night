@@ -149,6 +149,7 @@ RSpec.describe BinarySearchTree do
 
     it "has a #load method that loads a txt file into the tree and returns the amount of movies loaded" do
       tree = BinarySearchTree.new
+      
       movie_count = tree.load('./data/movies.txt')
 
       expect(movie_count).to eq(35)
