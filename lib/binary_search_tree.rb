@@ -29,6 +29,22 @@ class BinarySearchTree
     false
   end
 
+  def depth_of(score)
+    current_node = @root_node
+    depth = 0
+    while current_node != nil
+      return depth if current_node.score == score
+
+      if score < current_node.score
+        current_node = current_node.left_node
+      else
+        current_node = current_node.right_node
+      end
+      depth += 1
+    end
+    nil
+  end
+
   private
 
   def insert_node(current_node, score, title, depth)
@@ -37,15 +53,17 @@ class BinarySearchTree
         current_node.left_node = Node.new(score, title)
         return depth + 1
       else
-        insert_node(current_node.left_node, score, title, depth + 1)
+        return insert_node(current_node.left_node, score, title, depth + 1)
       end
     elsif score > current_node.score
       if current_node.right_node.nil?
         current_node.right_node = Node.new(score, title)
         return depth + 1
       else
-        insert_node(current_node.right_node, score, title, depth + 1)
+        return insert_node(current_node.right_node, score, title, depth + 1)
       end
+    elsif score == current_node.score
+      return "No Duplicate Score Allowed"
     end
   end
 end

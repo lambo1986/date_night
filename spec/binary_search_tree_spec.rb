@@ -54,6 +54,19 @@ RSpec.describe BinarySearchTree do
       expect(depth5).to eq(2)
     end
 
+    it "cannot #insert a node with a duplicate score" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      dup_score = tree.insert(47, "Curious George")
+
+      expect(dup_score).to eq("No Duplicate Score Allowed")
+    end
+
     it "has an #include? method to verify a score exists in the tree" do
       tree = BinarySearchTree.new
       tree.insert(47, "Toys")
@@ -68,6 +81,21 @@ RSpec.describe BinarySearchTree do
       expect(tree.include?(13)).to eq(true)
       expect(tree.include?(76)).to eq(true)
       expect(tree.include?(100)).to eq(false)
+    end
+
+    it "has a depth_of method that returns the depth of the node" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      expect(tree.depth_of(47)).to eq(0)
+      expect(tree.depth_of(23)).to eq(1)
+      expect(tree.depth_of(67)).to eq(1)
+      expect(tree.depth_of(13)).to eq(2)
+      expect(tree.depth_of(76)).to eq(2)
     end
   end
 end
