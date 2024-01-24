@@ -15,6 +15,20 @@ class BinarySearchTree
     end
   end
 
+  def include?(score)
+    current_node = @root_node
+    while current_node != nil
+      return true if current_node.score == score
+
+      if score < current_node.score
+        current_node = current_node.left_node
+      else
+        current_node = current_node.right_node
+      end
+    end
+    false
+  end
+
   private
 
   def insert_node(current_node, score, title, depth)
