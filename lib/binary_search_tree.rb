@@ -45,6 +45,10 @@ class BinarySearchTree
     nil
   end
 
+  def max
+    
+  end
+
   private
 
   def insert_node(current_node, score, title, depth)
