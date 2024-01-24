@@ -67,6 +67,12 @@ class BinarySearchTree
     { current_node.title => current_node.score }
   end
 
+  def sort
+    sorted_array = []
+    in_order_traversal(@root_node, sorted_array)
+    sorted_array
+  end
+
   private
 
   def insert_node(current_node, score, title, depth)
@@ -87,5 +93,13 @@ class BinarySearchTree
     elsif score == current_node.score
       return "No Duplicate Score Allowed"
     end
+  end
+
+  def in_order_traversal(node, array)
+    return if node.nil?
+
+    in_order_traversal(node.left_node, array)
+    array << { node.title => node.score }
+    in_order_traversal(node.right_node, array)
   end
 end
