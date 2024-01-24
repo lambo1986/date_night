@@ -46,7 +46,25 @@ class BinarySearchTree
   end
 
   def max
-    
+    return nil if @root_node.nil?
+
+    current_node = @root_node
+    while current_node.right_node != nil
+      current_node = current_node.right_node
+    end
+
+    { current_node.title => current_node.score }
+  end
+
+  def min
+    return nil if @root_node.nil?
+
+    current_node = @root_node
+    while current_node.left_node != nil
+      current_node = current_node.left_node
+    end
+
+    { current_node.title => current_node.score }
   end
 
   private
