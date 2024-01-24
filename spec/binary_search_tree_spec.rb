@@ -146,5 +146,14 @@ RSpec.describe BinarySearchTree do
       expect(sorted_movies.first).to eq({"Dude, Where's My Car?" => 13})
       expect(sorted_movies.last).to eq({"Jurassic Park"=> 76})
     end
+
+    it "has a #load method that loads a txt file into the tree and returns the amount of movies loaded" do
+      tree = BinarySearchTree.new
+      movie_count = tree.load('./data/movies.txt')
+
+      expect(movie_count).to eq(35)
+      expect(tree.root_node.score).to eq(87)
+      expect(tree.root_node.title).to eq("Inception")
+    end
   end
 end

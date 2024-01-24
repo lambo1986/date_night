@@ -1,0 +1,36 @@
+87, Inception
+92, The Matrix
+76, Interstellar
+53, The Grand Budapest Hotel
+64, Mad Max: Fury Road
+31, The Shawshank Redemption
+45, Spirited Away
+58, The Dark Knight
+82, Pulp Fiction
+39, The Godfather
+71, Fight Club
+48, Forrest Gump
+95, The Lord of the Rings: The Return of the King
+20, The Lion King
+66, Gladiator
+54, Saving Private Ryan
+78, Schindler's List
+84, The Green Mile
+30, Braveheart
+90, The Prestige
+60, The Departed
+42, Django Unchained
+35, The Wolf of Wall Street
+49, Avatar
+67, Titanic
+73, A Beautiful Mind
+55, Good Will Hunting
+29, The Truman Show
+88, The Big Lebowski
+98, Whiplash
+17, Eternal Sunshine of the Spotless Mind
+25, La La Land
+33, The Breakfast Club
+44, Dead Poets Society
+51, The Notebook
+39, Something Duplicated
