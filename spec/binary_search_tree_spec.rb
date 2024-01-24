@@ -136,11 +136,15 @@ RSpec.describe BinarySearchTree do
       tree.insert(13, "Dude, Where's My Car?")
       tree.insert(76, "Jurassic Park")
 
-      expect(tree.sort).to be_an Array
-      expect(tree.sort.first).to be_a Hash
-      expect(tree.sort.last).to be_a Hash
-      expect(tree.sort.first[:title]).to eq("Dude, Where's My Car?")
-      expect(tree.sort.last[:title]).to eq("Jurassic Park")
+      sorted_movies = tree.sort
+require 'pry'; binding.pry
+      expect(sorted_movies).to be_an Array
+      expect(sorted_movies.first).to be_a Hash
+      expect(sorted_movies.last).to be_a Hash
+      expect(sorted_movies.first.keys.first).to eq("Dude, Where's My Car?")
+      expect(sorted_movies.last.keys.first).to eq("Jurassic Park")
+      expect(sorted_movies.first).to eq({"Dude, Where's My Car?" => 13})
+      expect(sorted_movies.last).to eq({"Jurassic Park"=> 76})
     end
   end
 end
