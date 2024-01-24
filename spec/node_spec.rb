@@ -1,4 +1,4 @@
-require_relative '../lib/node'
+require './lib/node'
 require_relative '../lib/binary_search_tree'
 
 RSpec.describe Node do
