@@ -53,5 +53,21 @@ RSpec.describe BinarySearchTree do
       expect(depth4).to eq(2)
       expect(depth5).to eq(2)
     end
+
+    it "has an #include? method to verify a score exists in the tree" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      expect(tree.include?(47)).to eq(true)
+      expect(tree.include?(23)).to eq(true)
+      expect(tree.include?(67)).to eq(true)
+      expect(tree.include?(13)).to eq(true)
+      expect(tree.include?(76)).to eq(true)
+      expect(tree.include?(100)).to eq(false)
+    end
   end
 end
