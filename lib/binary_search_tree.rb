@@ -9,9 +9,9 @@ class BinarySearchTree
   def insert(score, title)
     if @root_node.nil?
       @root_node = Node.new(score, title)
-      return 0 # depth
+      return 0# depth
     else
-      return insert_node(@root_node, score, title, 0)
+      return insert_node(@root_node, score, title, 0)# private method
     end
   end
 
@@ -69,7 +69,7 @@ class BinarySearchTree
 
   def sort
     sorted_array = []
-    in_order_traversal(@root_node, sorted_array)
+    in_order_traversal(@root_node, sorted_array)# private method
     sorted_array
   end
 
@@ -78,8 +78,8 @@ class BinarySearchTree
     File.readlines(file_path).each do |line|
       score, title = line.split(', ', 2)# splits the line into only 2 in case the title has commas in it
       score = score.to_i
-      if !include?(score)
-      insert(score, title.strip)# removes the newline character at the end of the title or empty spaces
+      if !include?(score)# makes sure that the score is not already in the tree
+      insert(score, title.strip)# removes empty spaces
       count += 1
       end
     end
