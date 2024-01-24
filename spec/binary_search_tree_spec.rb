@@ -97,5 +97,42 @@ RSpec.describe BinarySearchTree do
       expect(tree.depth_of(13)).to eq(2)
       expect(tree.depth_of(76)).to eq(2)
     end
+
+    it "has a #max method that returns the highest score in the tree" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      expect(tree.max).to eq(76)
+    end
+
+    it "has a #min method that returns the lowest score in the tree" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      expect(tree.min).to eq(47)
+    end
+
+    it "has a #sort method that returns an array of titles and scores, ascending as hashes" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      expect(tree.sort).to be_an Array
+      expect(tree.sort.first).to be_a Hash
+      expect(tree.sort.last).to be_a Hash
+      expect(tree.sort.first[:title]).to eq("Dude, Where's My Car?")
+      expect(tree.sort.last[:title]).to eq("Jurassic Park")
+    end
   end
 end
