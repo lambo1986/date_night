@@ -1,4 +1,4 @@
-require_relative '../lib/node'
+require './lib/node'
 require_relative '../lib/binary_search_tree'
 
 RSpec.describe BinarySearchTree do
@@ -11,6 +11,7 @@ RSpec.describe BinarySearchTree do
   it "has a root node" do
     tree = BinarySearchTree.new
 
+    expect(tree).to be_a(BinarySearchTree)
     expect(tree.root_node).to be(nil)
   end
 end
