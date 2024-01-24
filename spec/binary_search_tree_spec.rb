@@ -97,5 +97,54 @@ RSpec.describe BinarySearchTree do
       expect(tree.depth_of(13)).to eq(2)
       expect(tree.depth_of(76)).to eq(2)
     end
+
+    it "has a #max method that returns the highest score in the tree" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      max_movie = tree.max
+
+      expect(max_movie).to be_a Hash
+      expect(max_movie["Jurassic Park"]).to eq(76)
+      expect(max_movie).to eq({"Jurassic Park" => 76})
+    end
+
+    it "has a #min method that returns the lowest score in the tree" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      min_movie = tree.min
+
+      expect(min_movie).to be_a Hash
+      expect(min_movie["Dude, Where's My Car?"]).to eq(13)
+      expect(min_movie).to eq({"Dude, Where's My Car?" => 13})
+    end
+
+    it "has a #sort method that returns an array of titles and scores, ascending as hashes" do
+      tree = BinarySearchTree.new
+      tree.insert(47, "Toys")
+      tree.insert(23, "Bill and Ted")
+      tree.insert(67, "Batman")
+      tree.insert(13, "Dude, Where's My Car?")
+      tree.insert(76, "Jurassic Park")
+
+      sorted_movies = tree.sort
+
+      expect(sorted_movies).to be_an Array
+      expect(sorted_movies.first).to be_a Hash
+      expect(sorted_movies.last).to be_a Hash
+      expect(sorted_movies.first.keys.first).to eq("Dude, Where's My Car?")
+      expect(sorted_movies.last.keys.first).to eq("Jurassic Park")
+      expect(sorted_movies.first).to eq({"Dude, Where's My Car?" => 13})
+      expect(sorted_movies.last).to eq({"Jurassic Park"=> 76})
+    end
   end
 end
