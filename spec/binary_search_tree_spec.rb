@@ -137,7 +137,7 @@ RSpec.describe BinarySearchTree do
       tree.insert(76, "Jurassic Park")
 
       sorted_movies = tree.sort
-require 'pry'; binding.pry
+
       expect(sorted_movies).to be_an Array
       expect(sorted_movies.first).to be_a Hash
       expect(sorted_movies.last).to be_a Hash
