@@ -106,9 +106,11 @@ RSpec.describe BinarySearchTree do
       tree.insert(13, "Dude, Where's My Car?")
       tree.insert(76, "Jurassic Park")
 
-      expect(tree.max).to be_a Hash
-      expect(tree.max[:score]).to eq(76)
-      expect(tree.max[:title]).to eq("Jurassic Park")
+      max_movie = tree.max
+
+      expect(max_movie).to be_a Hash
+      expect(max_movie["Jurassic Park"]).to eq(76)
+      expect(max_movie).to eq({"Jurassic Park" => 76})
     end
 
     it "has a #min method that returns the lowest score in the tree" do
@@ -119,9 +121,11 @@ RSpec.describe BinarySearchTree do
       tree.insert(13, "Dude, Where's My Car?")
       tree.insert(76, "Jurassic Park")
 
-      expect(tree.min).to be_a Hash
-      expect(tree.min[:score]).to eq(13)
-      expect(tree.min[:title]).to eq("Dude, Where's My Car?")
+      min_movie = tree.min
+
+      expect(min_movie).to be_a Hash
+      expect(min_movie["Dude, Where's My Car?"]).to eq(13)
+      expect(min_movie).to eq({"Dude, Where's My Car?" => 13})
     end
 
     it "has a #sort method that returns an array of titles and scores, ascending as hashes" do
