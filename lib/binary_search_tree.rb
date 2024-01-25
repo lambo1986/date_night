@@ -86,6 +86,29 @@ class BinarySearchTree
     count
   end
 
+  def total_nodes(node = @root_node)
+    return 0 if node.nil?
+    1 + total_nodes(node.left_node) + total_nodes(node.right_node)
+  end
+
+  def nodes_at_depth(desired_depth, current_node = @root_node, current_depth = 0)
+    return [] if current_node.nil?
+    return [[current_node, current_depth]] if current_depth == desired_depth
+
+    nodes_at_depth(desired_depth, current_node.left_node, current_depth + 1) +
+    nodes_at_depth(desired_depth, current_node.right_node, current_depth + 1)
+  end
+
+  def health(depth)
+    total = total_nodes
+    nodes_at_depth(depth).map do |node, _|
+      children_count = total_nodes(node) - 1
+      percentage = ((children_count + 1).to_f / total * 100).floor
+      [node.score, children_count + 1, percentage]
+    end
+  end
+
+
   private
 
   def insert_node(current_node, score, title, depth)
