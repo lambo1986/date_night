@@ -108,7 +108,6 @@ class BinarySearchTree
     end
   end
 
-
   private
 
   def insert_node(current_node, score, title, depth)
