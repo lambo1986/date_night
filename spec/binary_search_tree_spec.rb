@@ -149,11 +149,27 @@ RSpec.describe BinarySearchTree do
 
     it "has a #load method that loads a txt file into the tree and returns the amount of movies loaded" do
       tree = BinarySearchTree.new
+
       movie_count = tree.load('./data/movies.txt')
 
       expect(movie_count).to eq(35)
       expect(tree.root_node.score).to eq(87)
       expect(tree.root_node.title).to eq("Inception")
+    end
+
+    it "has a #health method that returns a summary of the tree at a givin depth" do
+      tree = BinarySearchTree.new
+      tree.insert(98, "Animals United")
+      tree.insert(58, "Armageddon")
+      tree.insert(36, "Bill & Ted's Bogus Journey")
+      tree.insert(93, "Bill & Ted's Excellent Adventure")
+      tree.insert(86, "Charlie's Angels")
+      tree.insert(38, "Charlie's Country")
+      tree.insert(69, "Collateral Damage")
+      #node score, total number of child nodes including self, percentage of all nodes that are this node or its children
+      expect(tree.health(0)).to eq([[98, 7 , 100]])
+      expect(tree.health(1)).to eq([[58, 6, 85]])
+      expect(tree.health(2)).to eq([[36, 2, 28], [93, 3, 42]])
     end
   end
 end
